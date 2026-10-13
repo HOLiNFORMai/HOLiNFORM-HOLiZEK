@@ -1,6 +1,6 @@
 # HOLiZEK — HOLiNFORM receptkezelő
 
-**Aktuális forrásverzió: 26.10.2.** Windows asztali receptkatalógus; a mobilkliens és a Partner-allergiák kezelésének adatmodellje előkészítve.
+**Első prototípus: 26.10.1.** Windows asztali receptkatalógus; a mobilkliens és a Partner-allergiák kezelésének adatmodellje előkészítve.
 
 ## Mit tud most?
 
@@ -74,8 +74,19 @@ py -3 -m unittest discover -s tests -v
 
 Lásd: `docs/PROJECT_STATUS.md`, `docs/DECISIONS.md`, `docs/CURRENT_WORK.md`.
 
-## Updater-integráció (26.10.2)
+## 26.10.3 – Windows GUI továbbfejlesztés
 
-A HOLiNFORM-Updater kezelt modulja: `HOLiNFORM-HOLiZEK`, repository `HOLiNFORMai/HOLiNFORM-HOLiZEK`, ág `main`, könyvtár `<HOLINFORM_ROOT>\HOLiNFORM-HOLiZEK`. A forrás-klónozás/frissítés után az Updater a repógyökérben lévő `HOLiNFORM-HOLiZEK.cmd` fájlt használja, amely `python -m main` útján indítja a Windows GUI-t. Telepített Python 3.11+ szükséges.
+A V1 import eredményét megőrzi; **a már betöltött SQLite vagy PostgreSQL adatokhoz nem nyúl telepítéskor/frissítéskor**.
 
-A **forrás-repó nem tartalmazza** a receptadatbázist vagy az XLSX-et: üres klónozás után a program `Excel importálása` gombjával töltsd be a korábban megadott `haztartas_ma_receptek_eygedi.xlsx` fájlt. Ha a korábbi ZIP-ből a központi adatmappában már ott az adatbázis, azt a frissítés nem írja felül. Képek: `<HOLINFORM_ROOT>\import\HOLiZEK\haztartas_ma_export\images\`.
+- 1920×1000 célméretű, automatikusan képernyőhöz igazított osztott munkafelület.
+- Keresés külön: recept neve / hozzávalók / teljes szöveg; kategóriaszűrés; szűrések törlése.
+- Tartósan rendezett lista növekvő/csökkenő nyíllal; oszlopszélesség automatikus igazítása a fejléc oszlophatárán történő dupla kattintással.
+- Egyben olvasható **Áttekintés**, külön Hozzávalók, Előkészítés, Elkészítés, Képek lapok; képszám és előnézet.
+- Recept vágólapra másolása, biztonságosan ellenőrzött forrás-URL megnyitása, képimportmappa megnyitása.
+- Központi HOLiNFORM téma és ikon használata, élő témakövetés, helyi Updater-verziójelzés; téma hiányában natív fallback.
+- Aktív adatbázis kijelzése és központi állapot publikálása; nem blokkoló adatbázis-indítás.
+- Hosszú import közben darabszám, folyamat, eltelt idő és ETA; import nélkül nincs üres folyamatjelző.
+- Felhasználói ablakpozíció és normal/maximalizált állapot megőrzése, képernyőhöz igazított visszaállítás.
+- Tesztek: szöveges keresési tartományok, rendezés, URL-validálás, valódi Tk indítás Xvfb alatt.
+
+**Korlátok:** a GUI nem szerkeszt recepteket és nem végez allergénminősítést; a mobilkliens külön projektfázis. A natív Windows GUI és sötét téma tényleges megjelenését a célgépen is ellenőrizni kell. A Pillow képelőnézethez továbbra is ajánlott.

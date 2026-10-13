@@ -1,8 +1,10 @@
-## 26.10.2 — HOLiNFORM-Updater forrásmodul-kapcsolat
+## 26.10.3 – Receptnézet GUI és HOLiNFORM-standard
 
-- Modulmanifest és `HOLiNFORM-HOLiZEK.cmd` indító elkészült; a frissítések Git checkouton keresztül történhetnek.
-- A telepített forrás nem tartalmaz más webhelyekről gyűjtött receptadatokat; Excel-import szükséges.
-- A GUI és az Updater együttműködését Windows célgépen még ellenőrizni kell; nincs natív EXE telepítő.
+- Elkészült az osztott, szűrhető, rendezhető és lapos receptnézet, nem blokkoló kapcsolódással.
+- Hozzávalók és teljes szöveges keresés, képnézet, vágólap, forrás és importmappa gombok.
+- Standard design/ikon/Updater jelzés/DB státusz, geometria, fejléc-határ autooszlop és progress.
+- Szintetikus tesztadat + 711 receptből álló fejlesztői DB smoke teszt; Windows ellenőrzés hátravan.
+- Az importált adatok migrációja/törlése nem része ennek a verziónak.
 
 # Projektállapot — 2026.10.13.
 

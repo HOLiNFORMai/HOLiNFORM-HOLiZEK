@@ -1,0 +1,28 @@
+name: HOLiZEK Python and GUI tests
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  tests:
+    name: Tests ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile source
+        run: python -m compileall -q holizek tests main.py
+      - name: Run Windows or native unit tests
+        if: runner.os == 'Windows'
+        run: python -m unittest discover -s tests -v
+      - name: Run GUI smoke with Xvfb
+        if: runner.os == 'Linux'
+        run: xvfb-run -a python -m unittest discover -s tests -v

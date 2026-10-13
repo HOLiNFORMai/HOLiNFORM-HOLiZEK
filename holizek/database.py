@@ -146,17 +146,29 @@ class CatalogDB:
     def categories(self):
         return self.execute(f'SELECT category, COUNT(*) FROM {self.table("recipe_categories")} GROUP BY category ORDER BY category').fetchall()
 
-    def search(self, term='', category='', limit=1000):
-        pattern = '%' + term.strip().lower().replace('%', r'\%').replace('_', r'\_') + '%'
+    def search(self, term='', category='', limit=1000, scope='title'):
+        """Search selected original fields using a strict SQL-column allowlist."""
+        pattern = '%' + term.strip().lower().replace('\\', '\\\\').replace('%', r'\%').replace('_', r'\_') + '%'
+        fields = {
+            'title': ('r.title',),
+            'ingredients': ('r.ingredients_original',),
+            'all': ('r.title', 'r.ingredients_original', 'r.preparation_original',
+                    'r.instructions_original', 'r.category_original'),
+        }
+        if scope not in fields:
+            raise ValueError('Ismeretlen keresési tartomány')
         args = []
         join = ''
         if category:
             join = f' JOIN {self.table("recipe_categories")} c ON c.recipe_id = r.recipe_id AND c.category = ?'
             args.append(category)
-        args.extend([pattern,limit])
-        return self.execute(f'''SELECT r.recipe_id,r.title,r.category_original,r.duration_minutes
-           FROM {self.table("recipes")} r {join}
-           WHERE LOWER(r.title) LIKE ? ESCAPE '\\' ORDER BY r.title LIMIT ?''', tuple(args)).fetchall()
+        where = " OR ".join(f"LOWER(COALESCE({field}, '')) LIKE ? ESCAPE '\\'" for field in fields[scope])
+        args.extend([pattern] * len(fields[scope]))
+        args.append(limit)
+        query = (f'SELECT r.recipe_id, r.title, r.category_original, r.duration_minutes '
+                 f'FROM {self.table("recipes")} r {join} '
+                 f'WHERE ({where}) ORDER BY r.title LIMIT ?')
+        return self.execute(query, tuple(args)).fetchall()
 
     def recipe(self, recipe_id):
         c = self.execute(f'''SELECT title,source_url,category_original,duration_original,

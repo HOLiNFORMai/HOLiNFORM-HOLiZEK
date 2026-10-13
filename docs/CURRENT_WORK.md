@@ -1,8 +1,9 @@
-## 26.10.2 — Updater-telepítés/indítás
+## 26.10.3 – GUI standardizálás
 
-- HOLiZEK indítása: `HOLiNFORM-HOLiZEK.cmd`, `python -m main`.
-- A központi Updaterben kezelendő azonosító: `HOLiNFORM-HOLiZEK`.
-- Következő ellenőrzés: klónozás/frissítés és indítás az éles Windows gépen; XLSX import és PostgreSQL kapcsolat külön validálásra vár.
+- Commit után ellenőrizendő a `gui_standard.json` szerinti audit és a GitHub Actions.
+- Updater 26.10.126 már tartalmazza a HOLiZEK forrásmodult; új HOLiZEK verzió az Updaterből frissíthető.
+- Valós Windows céleszközön ellenőrizendő a sötét téma, táblázat fejléc/oszlop, hosszú sor, többmonitoros állapot és import után is működő képkapcsolatok.
+- Következő fejlesztési irány: receptek szerkesztése, adagolás és allergiaadatok Partner-integrációjának biztonságos megtervezése.
 
 # Következő fejlesztési lépések
 
