@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+*.sqlite3*
+*.db
+.venv/
+dist/
+build/
+*.xlsx
+haztartas_ma_export/
+images/
+*.log
+seed/
