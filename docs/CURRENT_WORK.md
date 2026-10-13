@@ -1,3 +1,9 @@
+## 26.10.2 — Updater-telepítés/indítás
+
+- HOLiZEK indítása: `HOLiNFORM-HOLiZEK.cmd`, `python -m main`.
+- A központi Updaterben kezelendő azonosító: `HOLiNFORM-HOLiZEK`.
+- Következő ellenőrzés: klónozás/frissítés és indítás az éles Windows gépen; XLSX import és PostgreSQL kapcsolat külön validálásra vár.
+
 # Következő fejlesztési lépések
 
 1. A forrás ZIP Windows-asztali indítása a tényleges HOLiNFORM gyökér alatt; PostgreSQL DPAPI ellenőrzés.

@@ -1,6 +1,6 @@
 # HOLiZEK — HOLiNFORM receptkezelő
 
-**Első prototípus: 26.10.1.** Windows asztali receptkatalógus; a mobilkliens és a Partner-allergiák kezelésének adatmodellje előkészítve.
+**Aktuális forrásverzió: 26.10.2.** Windows asztali receptkatalógus; a mobilkliens és a Partner-allergiák kezelésének adatmodellje előkészítve.
 
 ## Mit tud most?
 
@@ -73,3 +73,9 @@ py -3 -m unittest discover -s tests -v
 ## Projektállapot
 
 Lásd: `docs/PROJECT_STATUS.md`, `docs/DECISIONS.md`, `docs/CURRENT_WORK.md`.
+
+## Updater-integráció (26.10.2)
+
+A HOLiNFORM-Updater kezelt modulja: `HOLiNFORM-HOLiZEK`, repository `HOLiNFORMai/HOLiNFORM-HOLiZEK`, ág `main`, könyvtár `<HOLINFORM_ROOT>\HOLiNFORM-HOLiZEK`. A forrás-klónozás/frissítés után az Updater a repógyökérben lévő `HOLiNFORM-HOLiZEK.cmd` fájlt használja, amely `python -m main` útján indítja a Windows GUI-t. Telepített Python 3.11+ szükséges.
+
+A **forrás-repó nem tartalmazza** a receptadatbázist vagy az XLSX-et: üres klónozás után a program `Excel importálása` gombjával töltsd be a korábban megadott `haztartas_ma_receptek_eygedi.xlsx` fájlt. Ha a korábbi ZIP-ből a központi adatmappában már ott az adatbázis, azt a frissítés nem írja felül. Képek: `<HOLINFORM_ROOT>\import\HOLiZEK\haztartas_ma_export\images\`.

@@ -1,0 +1,11 @@
+{
+  "module_id": "HOLiNFORM-HOLiZEK",
+  "name": "HOLiZEK",
+  "window_name": "HOLiZEK - HOLiNFORM",
+  "repository": "HOLiNFORMai/HOLiNFORM-HOLiZEK",
+  "install_dir": "HOLiNFORM-HOLiZEK",
+  "branch": "main",
+  "source_checkout": true,
+  "python_module": "main",
+  "restart_after_update": false
+}

@@ -1,3 +1,9 @@
+## 26.10.2 — HOLiNFORM-Updater forrásmodul-kapcsolat
+
+- Modulmanifest és `HOLiNFORM-HOLiZEK.cmd` indító elkészült; a frissítések Git checkouton keresztül történhetnek.
+- A telepített forrás nem tartalmaz más webhelyekről gyűjtött receptadatokat; Excel-import szükséges.
+- A GUI és az Updater együttműködését Windows célgépen még ellenőrizni kell; nincs natív EXE telepítő.
+
 # Projektállapot — 2026.10.13.
 
 **V1: 26.10.1; repository kezdeti verzió.**
