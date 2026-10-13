@@ -20,7 +20,7 @@ class CatalogTests(unittest.TestCase):
             self.assertIsNone(safe_source(p,'..\\secret.jpg'))
             self.assertIsNone(safe_source(p,'C:\\secret.jpg'))
             self.assertIsNone(safe_source(p,'a\\virus.exe'))
-            self.assertEqual(safe_source(p,'haztartas_ma_export\\images\\test.jpg'),p/'haztartas_ma_export'/'images'/'test.jpg')
+            self.assertEqual(safe_source(p,'haztartas_ma_export\\images\\test.jpg'),(p/'haztartas_ma_export'/'images'/'test.jpg').resolve())
 
     def test_database_model(self):
         with tempfile.TemporaryDirectory() as t:

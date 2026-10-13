@@ -90,3 +90,7 @@ A V1 import eredményét megőrzi; **a már betöltött SQLite vagy PostgreSQL a
 - Tesztek: szöveges keresési tartományok, rendezés, URL-validálás, valódi Tk indítás Xvfb alatt.
 
 **Korlátok:** a GUI nem szerkeszt recepteket és nem végez allergénminősítést; a mobilkliens külön projektfázis. A natív Windows GUI és sötét téma tényleges megjelenését a célgépen is ellenőrizni kell. A Pillow képelőnézethez továbbra is ajánlott.
+
+### 26.10.4 – Windows tesztkompatibilitás
+
+A Windows ideiglenes mappák 8.3 rövid/elérési nevét ugyanarra a feloldott útvonalra normalizáló regressziós teszt javítva; a forrás-útvonalvédelmi működés nem változott.

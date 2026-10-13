@@ -1,3 +1,8 @@
+## 26.10.4 – Windows CI útvonal-azonosság
+
+- A Linux tesztek sikeresek voltak; Windows alatt a rövid/hosszú temp útvonalak teszt-egyenlősége nem vette figyelembe az NTFS normalizálást.
+- A teszt azonos feloldott útvonalakat hasonlít össze. Működő felhasználói adat/funkció nem változik.
+
 ## 26.10.3 – Receptnézet GUI és HOLiNFORM-standard
 
 - Elkészült az osztott, szűrhető, rendezhető és lapos receptnézet, nem blokkoló kapcsolódással.

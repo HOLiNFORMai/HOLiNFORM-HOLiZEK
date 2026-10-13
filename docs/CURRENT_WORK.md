@@ -1,3 +1,8 @@
+## 26.10.4 – Windows regressziós teszt javítás
+
+- A forrás biztonsági validálása változatlan, csak a tesztútvonal oldja fel a 8.3 temp-aliasokat.
+- Folytatás: Windows/Linux GitHub Actions teszt és központi GUI-standard audit, célgép sötét témája.
+
 ## 26.10.3 – GUI standardizálás
 
 - Commit után ellenőrizendő a `gui_standard.json` szerinti audit és a GitHub Actions.
