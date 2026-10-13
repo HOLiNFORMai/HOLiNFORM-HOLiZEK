@@ -1,0 +1,1 @@
+"""HOLiZEK recipe catalog."""
